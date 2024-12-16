@@ -1,12 +1,9 @@
 import axios from "axios";
 import { LANGUAGE_VERSIONS } from "./constants";
-import dotenv from "dotenv";
-
-dotenv.config(); 
 
 const API = axios.create({
-  baseURL: process.env.API_BASE_URL || "https://emkc.org/api/v2/piston",
-  timeout: 10000, 
+  baseURL: import.meta.env.VITE_API_BASE_URL || "https://emkc.org/api/v2/piston",
+  timeout: 10000,
 });
 
 export const executeCode = async (language, sourceCode) => {
